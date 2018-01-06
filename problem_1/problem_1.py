@@ -11,12 +11,8 @@ def problem_1( end ):
 
     """
     >>> problem_1(10)
-    [3, 6, 9]
-    [5]
     23
     >>> problem_1(20)
-    [3, 6, 9, 12, 15, 18]
-    [5, 10, 0]
     78
     """
 
@@ -27,8 +23,8 @@ def problem_1( end ):
     # Example of one occurring in both is 15
     multp5 = [x if x not in multp3 else 0 for x in range(5, end, 5)]
 
-    print(multp3)
-    print(multp5)
+    #print(multp3)
+    #print(multp5)
 
     return sum(multp3) + sum(multp5)
 
@@ -37,9 +33,9 @@ if __name__ == '__main__':
     import doctest
     doctest.testmod()
 
-    num = 1000;
+    target = 1000;
     t0 = timer();
-    print("result = {}".format(problem_1(num)))
+    print("result = {}".format(problem_1(target)))
 
     print("time = {} ms".format((timer()-t0)*1e3))
 
