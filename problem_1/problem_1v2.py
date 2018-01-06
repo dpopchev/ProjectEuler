@@ -19,25 +19,51 @@
 # It will be similar for arbitrary list of multiples, so we should create a
 # list of all possible combinations of k[] to subtract from the final sum
 
-# returns the greatest number divisible by k and less than N
+# returns the greatest number divisible by k and less or equal to N
 def FindGreatestNumDivisibleBy(k, N):
 
-    N -= 1
+    """
+    >>> FindGreatestNumDivisibleBy(2, 10)
+    10
+    >>> FindGreatestNumDivisibleBy(3, 19)
+    18
+    >>> FindGreatestNumDivisibleBy(5, 23)
+    20
+    """
+
     while N%k != 0:
         N -= 1
 
-    return N
+    return int(N)
 
-# returns the sum of all numbers less than target and divisible by k
+# returns the sum of all numbers less or equal to target and divisible by k
 def SumOfMultiple(k, target):
+
+    """
+    >>> SumOfMultiple(1,3)
+    6
+    >>> SumOfMultiple(5,10)
+    15
+    >>> SumOfMultiple(2,6)
+    12
+    """
 
     p = FindGreatestNumDivisibleBy(k, target)/k
 
-    return k*(1/2)*p*(p+1)
+    return int(k*(1/2)*p*(p+1))
 
 # finds all possible products of the numbers provided in k_list
 # and return extended one with all possible multiples
 def FindCombinedMultiple(k_list):
+
+    """
+    >>> FindCombinedMultiple([2,3])
+    [6]
+    >>> FindCombinedMultiple([3,5])
+    [15]
+    >>> FindCombinedMultiple([3,5,7])
+    [15, 21, 35]
+    """
 
     from itertools import combinations
 
@@ -52,7 +78,13 @@ def FindCombinedMultiple(k_list):
 # list k, and less than the number target
 def FindSumOfMultiples(k, target):
 
+    """
+    >>> FindSumOfMultiples([3,5], 10)
+    23
+    """
+
     k_combined = FindCombinedMultiple(k)
+    target -= 1
 
     result = 0
     for i in k:
