@@ -57,7 +57,9 @@ def problem_3(number):
 
     # Lets go through all odd numbers, starting with 3
     # and less or equal to the number
-    for i in range( 3, int(number)+1, 1):
+    i = 2
+    while i < int(number) + 1:
+        i += 1
 
         prime_flag = True
 
@@ -94,7 +96,8 @@ if __name__ == "__main__":
     import doctest
     doctest.testmod()
 
-    num = int(600851475143)
+    #num = int(600851475143)
+    num = int(9779)
     t0 = timer()
 
     print("result = {}".format(problem_3(num)))
